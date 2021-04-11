@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import dogBreedsById from '../data/dogBreedsById.json';
 import catBreedsById from '../data/catBreedsById.json';
-import { DOG_API, CAT_API } from './constants';
 import { getPic } from './getPic';
 
 export const DOG_API_TYPE = 'dog';
 export const CAT_API_TYPE = 'cat';
+const DOG_API = 'https://api.thedogapi.com/v1/images/search';
+const CAT_API = 'https://api.thecatapi.com/v1/images/search';
 
 export const useApi = (type, key) => {
     const [ breeds, setBreeds ] = useState();
