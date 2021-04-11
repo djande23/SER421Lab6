@@ -7,7 +7,8 @@
  "scripts": {
   "style": "npx styleguidist server",
   "build": "next build",
-  "server": "next -p 3000"
+  "server": "next -p 3000",
+  "test": "jest"
  },
  "devDependencies": {
   "@babel/node": "^7.13.10",
