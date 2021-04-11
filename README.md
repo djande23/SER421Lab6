@@ -4,12 +4,12 @@ Lab 6 skeleton code
 ## DO THIS FIRST!!!
 Install node modules by running the following command:
 
-> npm install
+`npm install`
 
 ## Running Styleguidist
 
-> npm run style
+`npm run style`
 
 ## Running Next.js Server
 
-> npm run server
+`npm run server`
