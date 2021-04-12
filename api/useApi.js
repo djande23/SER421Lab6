@@ -1,39 +1,32 @@
-import React, { useState, useEffect } from 'react';
 import dogBreedsById from '../data/dogBreedsById.json';
 import catBreedsById from '../data/catBreedsById.json';
 import { getPic } from './getPic';
 
 export const DOG_API_TYPE = 'dog';
 export const CAT_API_TYPE = 'cat';
-const DOG_API = 'https://api.thedogapi.com/v1/images/search';
-const CAT_API = 'https://api.thecatapi.com/v1/images/search';
+export const DOG_API_URL = 'https://api.thedogapi.com/v1/images/search';
+export const CAT_API_URL = 'https://api.thecatapi.com/v1/images/search';
 
 export const useApi = (type, key) => {
-    const [ breeds, setBreeds ] = useState();
-    const [ apiKey ] = useState(key);
-    const [ baseUrl, setBaseUrl ] = useState();
+    (!key || key.length === 0) && console.error('NO API KEY PROVIDED!');
 
-    useEffect(() => {
-        (!key || key.length === 0) && console.error('NO API KEY PROVIDED!');
+    let breedsById, apiUrl, breeds;
+    if(type === DOG_API_TYPE) {
+        breedsById = dogBreedsById;
+        apiUrl = DOG_API_URL;
+    } else if(type === CAT_API_TYPE) {
+        breedsById = catBreedsById;
+        apiUrl = CAT_API_URL;
+    } else {
+        console.error('INCORRECT API TYPE PROVIDED:', type);
+    }
+    if(breedsById) {
+        breeds = Object.keys(breedsById).map(breedId => {
+            return { label: breedsById[breedId].name, value: breedsById[breedId].name, id: breedId };
+        });
+    }
 
-        let breedsById, fetch;
-        if(type === DOG_API_TYPE) {
-            breedsById = dogBreedsById;
-            setBaseUrl(DOG_API);
-        } else if(type === CAT_API_TYPE) {
-            breedsById = catBreedsById;
-            setBaseUrl(CAT_API);
-        } else {
-            console.error('INCORRECT API TYPE PROVIDED:', type);
-        }
-        if(breedsById) {
-            setBreeds(Object.keys(breedsById).map(breedId => {
-                return { label: breedsById[breedId].name, value: breedsById[breedId].name, id: breedId };
-            }));
-        }
-    }, [type, key]);
-
-    const fetchImage = async (breed, getGif) => {
+    const fetchImage = async (breed, getGif, apiKey, baseUrl) => {
         const response = await getPic(breed, getGif, apiKey, baseUrl);
         if(response) {
             if(Array.isArray(response)) {
@@ -56,5 +49,5 @@ export const useApi = (type, key) => {
         }
     };
 
-    return { breeds, fetchImage };
+    return { breeds, apiUrl, fetchImage };
 };

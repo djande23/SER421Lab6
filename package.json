@@ -5,7 +5,7 @@
  "main": "lib/index.js",
  "module": "esm/index.js",
  "scripts": {
-  "style": "npx styleguidist server",
+  "style": "styleguidist server",
   "build": "next build",
   "server": "next -p 3000",
   "test": "jest"
