@@ -30,4 +30,24 @@ it('wrapper should render',()=>{
         border-radius: 6px;
         `)
     })
+    it('should have style if an image is there',()=>{
+        render(<Image />)
+        expect(screen.getByRole('image-disp')).toHaveStyle(`
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        width: 640px;
+        height: 640px;
+        `)
+    })
+    it('should ahve style if there is no new image if none to display',()=>{
+        render(<Image imageUrl={''}/>)
+        expect(screen.getByRole('image-none')).toHaveStyle(`
+        color: #555;
+        font-weight: 700;
+        font-size: 28px;
+        font-family: Open Sans,sans-serif;
+        `)
+    })
+
 })
