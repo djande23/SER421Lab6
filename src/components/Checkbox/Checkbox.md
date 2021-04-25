@@ -1,0 +1,3 @@
+```jsx
+<input type="checkbox" />
+```
