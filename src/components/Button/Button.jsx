@@ -3,11 +3,10 @@ import styled from 'styled-components';
 
 export const Button = (props) =>{
     return <label>
-        {props.label}
         <button
             value={props.value}
             onClick={props.onClick}
-        > {props.label} </button>;
+        > {props.value} </button>;
 
     </label>
 }

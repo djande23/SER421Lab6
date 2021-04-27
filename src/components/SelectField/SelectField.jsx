@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import styled from 'styled-components';
 
 export const SelectField = (props) => {
+
     const options = useMemo(()=>{
         return props.options.map((option,index)=>{
             return<Option key={`${props.label}select-field-${index}`}{...option}/>
@@ -10,11 +11,12 @@ export const SelectField = (props) => {
 
 
     const handleOnChange = e => {
-        const breed = Object.values(props.options).find(animalBreed.value === e.target.value)
-        const breedid= breed && breed.id;
+        const breed = Object.values(props.options).find(animalBreed=> animalBreed.value === e.target.value)
+        const breedId= breed && breed.id;
         const value = {
             value: e.target.value,
-            label: e.target.value
+            label: e.target.value,
+            id:breedId
         }
         props.onChange(value)
     }
@@ -23,14 +25,14 @@ export const SelectField = (props) => {
     <Select
         role = {'pet-select'}
         label = {props.label}
-        options = {options}
-        children = {props.children}
         selectedOption = {props.selectedOption}
         placeholder = {props.placeholder}
         onChange = {handleOnChange}
         disabled = {props.disabled}
         value={props.selectedOption.value}
-    />
+    >
+        {options}
+    </Select>
     </Label>
 
 

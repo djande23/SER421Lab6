@@ -61,7 +61,7 @@ const Label = styled.label`
     }
     ${props => props.checked && `
     &:after{
-    content: '✔'
+    content: '✔';
     position: absolute;
     top: 1px;
     left: 3px;

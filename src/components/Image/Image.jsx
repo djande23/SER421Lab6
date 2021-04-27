@@ -3,20 +3,21 @@ import styled from 'styled-components';
 
 export const Image = (props) => {
 
-    if(props.imageUrl.length >0){
+    if(props.imageUrl && props.imageUrl.length >0){
         return <Wrapper
         role = 'image-wrap'>
         <Images
             role='image-disp'
-
+            imageUrl={props.imageUrl}
         />
         </Wrapper>
     }
     else{
         return <Wrapper>
         <NoImage
-            role='image-none'
-        />
+            role='image-none'>
+        Fetch a new image→
+        </NoImage>
     </Wrapper>
     }
 
@@ -24,7 +25,7 @@ export const Image = (props) => {
 }
 
 Image.defaultProps = {
-    imageUrl: 'hello'
+
 }
 
 const Wrapper = styled.div`

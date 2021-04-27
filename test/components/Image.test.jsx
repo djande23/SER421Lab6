@@ -5,11 +5,11 @@ import userEvent from "@testing-library/user-event";
 
 describe('<Image />',function (){
 it('wrapper should render',()=>{
-    render(<Image />)
+    render(<Image imageUrl={'hello'}/>)
     expect(screen.getByRole('image-wrap')).toBeInTheDocument()
 })
     it('should display an image if there is one',()=>{
-        render(<Image />)
+        render(<Image imageUrl={'hello.jpg'}/>)
         expect(screen.getByRole('image-disp')).toBeInTheDocument()
     })
     it('should fetch a new image if none to display',()=>{
@@ -17,7 +17,7 @@ it('wrapper should render',()=>{
         expect(screen.getByRole('image-none')).toBeInTheDocument()
     })
     it('should have style in the wrapper',()=>{
-        render(<Image />)
+        render(<Image imageUrl={'hello'}/>)
         expect(screen.getByRole('image-wrap')).toHaveStyle(`
         width: 680px;
         height: 680px;
@@ -31,7 +31,7 @@ it('wrapper should render',()=>{
         `)
     })
     it('should have style if an image is there',()=>{
-        render(<Image />)
+        render(<Image imageUrl={'hello'}/>)
         expect(screen.getByRole('image-disp')).toHaveStyle(`
         background-repeat: no-repeat;
         background-size: contain;
@@ -40,8 +40,8 @@ it('wrapper should render',()=>{
         height: 640px;
         `)
     })
-    it('should ahve style if there is no new image if none to display',()=>{
-        render(<Image imageUrl={''}/>)
+    it('should have style if there is no image to display',()=>{
+        render(<Image />)
         expect(screen.getByRole('image-none')).toHaveStyle(`
         color: #555;
         font-weight: 700;

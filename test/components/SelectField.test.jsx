@@ -19,7 +19,7 @@ describe('<SelectField />',()=>{
     })
     it('should have options in the select',()=>{
         let selectOptions = [<option value={'foo'} key={'foo'}/>,<option value={'bar'} key={'bar'}/>]
-        render(<SelectField children = {selectOptions}/>)
+        render(<SelectField options={selectOptions}/>)
         expect(screen.getByRole('pet-select').children).toHaveLength(2)
     })
 

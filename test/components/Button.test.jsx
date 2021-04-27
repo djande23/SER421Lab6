@@ -14,8 +14,8 @@ describe('<Button />',function(){
         act(()=>userEvent.click(screen.getByRole('button')))
         expect(mockCallBack.mock.calls.length >0)
     })
-    it('should render with a given label',function(){
-        render(<Button label="a" />)
+    it('should render with a given button name',function(){
+        render(<Button value="a" />)
         expect(screen.getByText('a')).toBeInTheDocument()
     })
 })

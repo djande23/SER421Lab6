@@ -13,27 +13,27 @@ role={'navi-wrapper'}
     role={'breed-wrapper'}>
         {<Checkbox
         label={'Get by breed'}
-        onChange={props.onBreedCheckboxChange()}
+        onChange={props.onBreedCheckboxChange}
         checked={props.useBreedSelection}
         disabled={props.animated}
         />}
         {<SelectField
         options={props.breeds}
-        onChange={props.onBreedChange()}
+        onChange={props.onBreedChange}
         selectedOption={props.selectedBreed}
         disabled={!props.useBreedSelection}
         />}
     </BreedSelectionWrapper>
     {<Checkbox
     label={'Get animated .gif'}
-    onChange={props.onGifChange()}
+    onChange={props.onGifChange}
     checked={props.animated}
     disabled={props.useBreedSelection}
     />}
     <ButtonWrapper
     role={'button-wrapper'}>
         {<Button
-        onClick={props.onFetchClick()}
+        onClick={props.onFetchClick}
         value={'Get Image'}
         />}
     </ButtonWrapper>
