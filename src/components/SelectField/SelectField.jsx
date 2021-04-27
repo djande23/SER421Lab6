@@ -75,12 +75,13 @@ font-weight: 700;
 color: #555;
 display: block;
 margin-top: 3px;
+padding: 0 5px;
 &:focus {
 outline: 0;
 box-shadow: 0 0 5px 3px #cce0ff;
 background-color: #e8f1ff;
 }
-padding: 0 5px;
+
 `
 
 const Option = styled.option`

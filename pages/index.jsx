@@ -30,14 +30,6 @@ const Index=()=> {
     const onBreedChange = value => setSelectedBreed(value);
     const onGifChange = () => !useBreedSelection && setAnimated(!animated);
 
-    const handleButtonClick = async () => {
-        if(checked) {
-            await fetch(DOG_API_URL + '?breed_ids=1');
-        } else {
-            await fetch('/123');
-        }
-    };
-
     return <Wrapper role={'nav-wrapper'}>
         {<Image
         imageUrl={image}
