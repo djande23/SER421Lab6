@@ -6,8 +6,11 @@ import {SelectField} from "..";
 
 
 export const UserInputPanel = (props)=>{
-return <NavigationWrapper>
-    <BreedSelectionWrapper>
+return <NavigationWrapper
+role={'navi-wrapper'}
+>
+    <BreedSelectionWrapper
+    role={'breed-wrapper'}>
         {<Checkbox
         label={'Get by breed'}
         onChange={props.onBreedCheckboxChange()}
@@ -27,7 +30,8 @@ return <NavigationWrapper>
     checked={props.animated}
     disabled={props.useBreedSelection}
     />}
-    <ButtonWrapper>
+    <ButtonWrapper
+    role={'button-wrapper'}>
         {<Button
         onClick={props.onFetchClick()}
         value={'Get Image'}
@@ -59,7 +63,7 @@ const BreedSelectionWrapper = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-marginL 40px 0 20px 0;
+margin: 40px 0 20px 0;
 width: 100%;
 `
 const NavigationWrapper = styled.div`

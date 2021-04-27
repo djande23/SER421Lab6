@@ -5,7 +5,7 @@ export const Button = (props) =>{
     return <label>
         {props.label}
         <button
-            value={''}
+            value={props.value}
             onClick={props.onClick}
         > {props.label} </button>;
 
