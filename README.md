@@ -29,3 +29,5 @@ OR
 ```shell
 jest
 ```
+
+I didn't see anything that needed to be added to this readme, thank you for your support during this class!
